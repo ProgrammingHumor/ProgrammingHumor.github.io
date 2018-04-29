@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-26T11:31:28+08:00">
-                2018-04-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-29T12:34:33+08:00">
+                2018-04-29
               </time>
             
           </span>
@@ -355,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  662
+                  698
                 </span>
               
 
@@ -395,11 +395,53 @@
         
           
             <h1 id="用c语言模拟Cache"><a href="#用c语言模拟Cache" class="headerlink" title="用c语言模拟Cache"></a>用c语言模拟Cache</h1><p>Cache的算法：<br>1.划分地址；<br>2.根据索引查找哪一组;<br>3.比对CacheTag;<br>4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;<br>5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块</p>
-<p>` #include &lt;stdio.h&gt;</p>
-<p>  #include &lt;malloc.h&gt;<br>typedef struct Cache2{<br>    char Valid;<br>    char CacheTag[7];<br>    char CacheDate[33];<br>    int count;<br>}Cache1;</p>
-<p>char <em>Cache(char binary[]);<br>int compare(char a[],char b[]);<br>char </em>fun(char data[]);<br>void count(int n);<br>int findmaxcount(int n);<br>void thDate(int c,char a[],int b);<br>void thTag(int n,char b[],int c);<br>Cache1 cache[16] = {<br>    {‘1’,”000000”,”00000000000000000000000000000001”,1},<br>    {‘1’,”000001”,”00000000000000000000000000000010”,2},<br>    {‘1’,”000010”,”00000000000000000000000000000011”,0},<br>    {‘1’,”000011”,”00000000000000000000000000000100”,3},<br>    {‘0’,”000000”,”00000000000000000000000000000101”,3},<br>    {‘1’,”000001”,”00000000000000000000000000000110”,0},<br>    {‘1’,”000010”,”00000000000000000000000000000111”,1},<br>    {‘1’,”000011”,”00000000000000000000000000001000”,2},<br>    {‘0’,”000000”,”00000000000000000000000000001001”,3},<br>    {‘1’,”000001”,”00000000000000000000000000001010”,1},<br>    {‘1’,”000010”,”00000000000000000000000000001011”,2},<br>    {‘1’,”000011”,”00000000000000000000000000001100”,0},<br>    {‘0’,”000000”,”00000000000000000000000000001101”,3},<br>    {‘1’,”000001”,”00000000000000000000000000001110”,2},<br>    {‘1’,”000010”,”00000000000000000000000000001111”,1},<br>    {‘1’,”000011”,”00000000000000000000000000000000”,0},<br>};<br>char td[33]=”10001000100010001111111111111111”;</p>
-<p>int main(){<br>    int i;<br>    char binary[11];<br>    int n =3;<br>    while (n–){<br>        for (i = 0; i &lt; 10; ++i) {<br>            scanf(“%c”, &amp;binary[i]);<br>        }<br>        getchar();<br>        puts(Cache(binary));</p>
-<pre><code>}
+<pre><code>`#include &lt;stdio.h&gt;
+#include &lt;malloc.h&gt;
+typedef struct Cache2{
+char Valid;
+char CacheTag[7];
+char CacheDate[33];
+int count;
+}Cache1;
+
+char *Cache(char binary[]);/*Cache算法*/
+int compare(char a[],char b[]);/*比较Tag*/
+char *fun(char data[]);/*返回32位字符数组*/
+void count(int n);/*刷新Count*/
+int findmaxcount(int n);/*寻找最大Count*/
+void thDate(int c,char a[],int b);/*替换CacheDate*/
+void thTag(int n,char b[],int c);/*替换CacheTag*/
+Cache1 cache[16] = {
+{&apos;1&apos;,&quot;000000&quot;,&quot;00000000000000000000000000000001&quot;,1},
+{&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000000010&quot;,2},
+{&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000000011&quot;,0},
+{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000000100&quot;,3}, {&apos;0&apos;,&quot;000000&quot;,&quot;00000000000000000000000000000101&quot;,3},
+{&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000000110&quot;,0},
+{&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000000111&quot;,1},
+{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000001000&quot;,2},
+{&apos;0&apos;,&quot;000000&quot;,&quot;00000000000000000000000000001001&quot;,3},
+{&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000001010&quot;,1},
+{&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000001011&quot;,2},
+{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000001100&quot;,0},
+{&apos;0&apos;,&quot;000000&quot;,&quot;00000000000000000000000000001101&quot;,3},
+{&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000001110&quot;,2},
+{&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000001111&quot;,1},
+{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000000000&quot;,0},
+};
+char td[33]=&quot;10001000100010001111111111111111&quot;;
+
+int main(){
+int i;
+char binary[11];
+int n =3;
+while (n--){
+for (i = 0; i &lt; 10; ++i) {
+scanf(&quot;%c&quot;, &amp;binary[i]);
+}
+getchar();
+puts(Cache(binary));
+
+}
 printf(&quot;%c %s %s %d\n&quot;,cache[0].Valid,cache[0].CacheTag,cache[0].CacheDate,cache[0].count);
 printf(&quot;%c %s %s %d\n&quot;,cache[1].Valid,cache[1].CacheTag,cache[1].CacheDate,cache[1].count);
 printf(&quot;%c %s %s %d\n&quot;,cache[2].Valid,cache[2].CacheTag,cache[2].CacheDate,cache[2].count);
@@ -410,9 +452,89 @@ printf(&quot;%c %s %s %d\n&quot;,cache[6].Valid,cache[6].CacheTag,cache[6].Cache
 printf(&quot;%c %s %s %d\n&quot;,cache[7].Valid,cache[7].CacheTag,cache[7].CacheDate,cache[7].count);
 
 return 0;
-</code></pre><p>}</p>
-<p>char <em>Cache(char binary[]){<br>    int j;<br>    int zuhao = 0;<br>    char Tag[6];<br>    int thh;<br>    for(j = 0;j &lt; 6;j++)<br>        Tag[j] = binary[j];<br>    zuhao += (binary[6] - ‘0’) </em> 2 + (binary[7] - ‘0’);<br>    for(j = (zuhao <em> 4);j &lt; (zuhao </em> 4 + 4);j++){<br>        if(cache[j].Valid == ‘1’ &amp;&amp; compare(Tag,cache[j].CacheTag) == 1){<br>            printf(“cache”);<br>            printf(“\n”);<br>            count(j);<br>            return fun(cache[j].CacheDate);<br>        }<br>        else if(cache[j].Valid == ‘1’ &amp;&amp; compare(Tag,cache[j].CacheTag) == 0)<br>        {<br>            printf(“cachemiss”);<br>            printf(“\n”);<br>            thh = findmaxcount(zuhao);<br>            thTag(thh,Tag,6);<br>            count(thh);<br>            return fun(cache[thh].CacheDate);<br>        }<br>    }<br>}<br>int compare(char a[],char b[]){<br>    int i=0;<br>    int test=0;<br>    for(i=0;i&lt;6;i++){<br>        if(a[i] == b[i])<br>            test = 1;<br>        else {<br>            test = 0;<br>            break;<br>        }<br>    }<br>    return test;<br>}<br>char <em>fun(char data[]){<br>     static char </em>a = NULL;<br>    a = (char<em>)malloc(33</em> sizeof(char));<br>    a=data;<br>    return a;<br>}<br>void count(int n){<br>    int t=0,k=0;<br>    cache[n].Valid = ‘1’;<br>    t = cache[n].count;<br>    for (k = (n/4)<em>4; k &lt;= (n/4)</em>4 + 3; ++k) {<br>        if(cache[k].count &lt; t)<br>            cache[k].count++;<br>    }<br>    cache[n].count = 0;<br>};<br>int findmaxcount(int p){<br>    int maxcount = 0,i=0;<br>    int l=p<em>4;<br>    maxcount = cache[p</em>4].count;<br>    for (i = p<em>4; i &lt;= p</em>4+3; ++i) {<br>        if(maxcount &lt; cache[i].count){<br>            maxcount = cache[i].count;<br>            l = i;<br>        }<br>    }<br>    thDate(l,td,32);<br>    return l;<br>};<br>void thDate(int c,char a[],int b){<br>    int i=0;<br>    for (i = 0; i &lt; b; ++i) {<br>        cache[c].CacheDate[i] = a[i];<br>    }<br>}<br>void thTag(int e,char b[],int c){<br>    int i;<br>    for (i = 0; i &lt; c; ++i) {<br>        cache[e].CacheTag[i] = b[i];<br>    }<br>}`</p>
+}
 
+char *Cache(char binary[]){
+int j;
+int zuhao = 0;
+char Tag[6];
+int thh;
+for(j = 0;j &lt; 6;j++)
+Tag[j] = binary[j];
+zuhao += (binary[6] - &apos;0&apos;) * 2 + (binary[7] - &apos;0&apos;);
+for(j = (zuhao * 4);j &lt; (zuhao * 4 + 4);j++){
+if(cache[j].Valid == &apos;1&apos; &amp;&amp; compare(Tag,cache[j].CacheTag) == 1){
+printf(&quot;cache&quot;);
+printf(&quot;\n&quot;);
+count(j);
+return fun(cache[j].CacheDate);
+}
+else if(cache[j].Valid == &apos;1&apos; &amp;&amp; compare(Tag,cache[j].CacheTag) == 0)
+{
+printf(&quot;cachemiss&quot;);
+printf(&quot;\n&quot;);
+thh = findmaxcount(zuhao);
+thTag(thh,Tag,6);
+count(thh);
+return fun(cache[thh].CacheDate);
+}
+}
+}
+int compare(char a[],char b[]){
+int i=0;
+int test=0;
+for(i=0;i&lt;6;i++){
+if(a[i] == b[i])
+test = 1;
+else {
+test = 0;
+break;
+}
+}
+return test;
+}
+char *fun(char data[]){
+ static char *a = NULL;
+a = (char*)malloc(33* sizeof(char));
+a=data;
+return a;
+}
+void count(int n){
+int t=0,k=0;
+cache[n].Valid = &apos;1&apos;;
+t = cache[n].count;
+for (k = (n/4)*4; k &lt;= (n/4)*4 + 3; ++k) {
+if(cache[k].count &lt; t &amp;&amp; cache[k].Valid == &apos;1&apos;)
+cache[k].count++;
+}
+cache[n].count = 0;
+};
+int findmaxcount(int p){
+int maxcount = 0,i=0;
+int l=p*4;
+maxcount = cache[p*4].count;
+for (i = p*4; i &lt;= p*4+3; ++i) {
+if(maxcount &lt; cache[i].count){
+maxcount = cache[i].count;
+l = i;
+}
+}
+thDate(l,td,32);
+return l;
+};
+void thDate(int c,char a[],int b){
+int i=0;
+for (i = 0; i &lt; b; ++i) {
+cache[c].CacheDate[i] = a[i];
+}
+}
+void thTag(int e,char b[],int c){
+int i;
+for (i = 0; i &lt; c; ++i) {
+cache[e].CacheTag[i] = b[i];
+}
+}`
+</code></pre>
           
         
       
