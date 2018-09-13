@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="用c语言模拟CacheCache的算法：1.划分地址；2.根据索引查找哪一组;3.比对CacheTag;4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 `#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; t">
+<meta name="description" content="用c语言模拟CacheCache的算法： 1.划分地址； 2.根据索引查找哪一组; 3.比对CacheTag; 4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到; 5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;g">
 <meta name="keywords" content="Cache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟Cache">
 <meta property="og:url" content="http://younglingblog.com/2018/04/26/模拟Cache/index.html">
 <meta property="og:site_name" content="Programming Humor">
-<meta property="og:description" content="用c语言模拟CacheCache的算法：1.划分地址；2.根据索引查找哪一组;3.比对CacheTag;4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 `#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; t">
+<meta property="og:description" content="用c语言模拟CacheCache的算法： 1.划分地址； 2.根据索引查找哪一组; 3.比对CacheTag; 4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到; 5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T04:34:33.343Z">
+<meta property="og:updated_time" content="2018-09-13T14:02:19.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟Cache">
-<meta name="twitter:description" content="用c语言模拟CacheCache的算法：1.划分地址；2.根据索引查找哪一组;3.比对CacheTag;4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 `#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;gt; t">
+<meta name="twitter:description" content="用c语言模拟CacheCache的算法： 1.划分地址； 2.根据索引查找哪一组; 3.比对CacheTag; 4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到; 5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;malloc.h&amp;g">
 
 
 
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-29T12:34:33+08:00">
-                2018-04-29
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-13T22:02:19+08:00">
+                2018-09-13
               </time>
             
           </span>
@@ -394,8 +394,13 @@
       
 
       
-        <h1 id="用c语言模拟Cache"><a href="#用c语言模拟Cache" class="headerlink" title="用c语言模拟Cache"></a>用c语言模拟Cache</h1><p>Cache的算法：<br>1.划分地址；<br>2.根据索引查找哪一组;<br>3.比对CacheTag;<br>4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;<br>5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块</p>
-<pre><code>`#include &lt;stdio.h&gt;
+        <h1 id="用c语言模拟Cache"><a href="#用c语言模拟Cache" class="headerlink" title="用c语言模拟Cache"></a>用c语言模拟Cache</h1><p>Cache的算法：</p>
+<p>1.划分地址；</p>
+<p>2.根据索引查找哪一组;</p>
+<p>3.比对CacheTag;</p>
+<p>4.如果比对成功则需要判定Valid，判定成功返回CacheData，否则未查找到;</p>
+<p>5.未查找到应当从内存中读取数据到Cache中并返回数据，如果Cache已满需要根据LRU算法替换出一块</p>
+<pre><code>#include &lt;stdio.h&gt;
 #include &lt;malloc.h&gt;
 typedef struct Cache2{
 char Valid;
@@ -415,7 +420,8 @@ Cache1 cache[16] = {
 {&apos;1&apos;,&quot;000000&quot;,&quot;00000000000000000000000000000001&quot;,1},
 {&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000000010&quot;,2},
 {&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000000011&quot;,0},
-{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000000100&quot;,3}, {&apos;0&apos;,&quot;000000&quot;,&quot;00000000000000000000000000000101&quot;,3},
+{&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000000100&quot;,3},    
+{&apos;0&apos;,&quot;000000&quot;,&quot;00000000000000000000000000000101&quot;,3},
 {&apos;1&apos;,&quot;000001&quot;,&quot;00000000000000000000000000000110&quot;,0},
 {&apos;1&apos;,&quot;000010&quot;,&quot;00000000000000000000000000000111&quot;,1},
 {&apos;1&apos;,&quot;000011&quot;,&quot;00000000000000000000000000001000&quot;,2},
@@ -533,7 +539,7 @@ int i;
 for (i = 0; i &lt; c; ++i) {
 cache[e].CacheTag[i] = b[i];
 }
-}`
+}
 </code></pre>
       
     </div>
@@ -597,6 +603,10 @@ cache[e].CacheTag[i] = b[i];
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/13/追踪某颜色的物体/" rel="prev" title="追踪某颜色的物体">
+                追踪某颜色的物体 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -677,7 +687,7 @@ cache[e].CacheTag[i] = b[i];
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -688,7 +698,7 @@ cache[e].CacheTag[i] = b[i];
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -699,7 +709,7 @@ cache[e].CacheTag[i] = b[i];
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -767,7 +777,7 @@ cache[e].CacheTag[i] = b[i];
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.1k</span>
+    <span title="Site words total count">1.3k</span>
   
 </div>
 

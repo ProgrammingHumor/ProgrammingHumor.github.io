@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -87,14 +87,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://younglingblog.com/tags/index.html">
+<meta name="description" content="获取图片中的红绿蓝物体  步骤如下： 1.获取红绿蓝在hsv中的值 import cv2 import numpy as np  blue = np.uint8([[[255,0,0,]]]) hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV) print(hsv_blue)  green = np.uint8([[[0,255,0]]]) hsv_g">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="追踪某颜色的物体">
+<meta property="og:url" content="http://younglingblog.com/2018/09/13/追踪某颜色的物体/index.html">
 <meta property="og:site_name" content="Programming Humor">
+<meta property="og:description" content="获取图片中的红绿蓝物体  步骤如下： 1.获取红绿蓝在hsv中的值 import cv2 import numpy as np  blue = np.uint8([[[255,0,0,]]]) hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV) print(hsv_blue)  green = np.uint8([[[0,255,0]]]) hsv_g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T14:17:17.329Z">
+<meta property="og:image" content="https://i.imgur.com/zcxhwM0.jpg">
+<meta property="og:image" content="https://i.imgur.com/7TZiLVz.png">
+<meta property="og:updated_time" content="2018-09-13T14:03:06.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="追踪某颜色的物体">
+<meta name="twitter:description" content="获取图片中的红绿蓝物体  步骤如下： 1.获取红绿蓝在hsv中的值 import cv2 import numpy as np  blue = np.uint8([[[255,0,0,]]]) hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV) print(hsv_blue)  green = np.uint8([[[0,255,0]]]) hsv_g">
+<meta name="twitter:image" content="https://i.imgur.com/zcxhwM0.jpg">
 
 
 
@@ -124,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://younglingblog.com/tags/"/>
+  <link rel="canonical" href="http://younglingblog.com/2018/09/13/追踪某颜色的物体/"/>
 
 
 
 
 
-  <title>tags | Programming Humor</title>
+  <title>追踪某颜色的物体 | Programming Humor</title>
   
 
 
@@ -246,40 +253,293 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://younglingblog.com/2018/09/13/追踪某颜色的物体/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youngling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Programming Humor">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 4 个标签
+          <h1 class="post-title" itemprop="name headline">追踪某颜色的物体</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T21:24:19+08:00">
+                2018-09-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-13T22:03:06+08:00">
+                2018-09-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/����/图像识别/" itemprop="url" rel="index">
+                    <span itemprop="name">图像识别</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  200
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/��ǩ/Cache/" style="font-size: 12px; color: #ccc">Cache</a> <a href="/��ǩ/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/��ǩ/杂记/" style="font-size: 12px; color: #ccc">杂记</a> <a href="/��ǩ/目标及计划/" style="font-size: 12px; color: #ccc">目标及计划</a>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>获取图片中的红绿蓝物体</p>
+<p><img src="https://i.imgur.com/zcxhwM0.jpg" alt=""></p>
+<p>步骤如下：</p>
+<p>1.获取红绿蓝在hsv中的值</p>
+<pre><code>import cv2
+import numpy as np
+
+blue = np.uint8([[[255,0,0,]]])
+hsv_blue = cv2.cvtColor(blue, cv2.COLOR_BGR2HSV)
+print(hsv_blue)
+
+green = np.uint8([[[0,255,0]]])
+hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)
+print(hsv_green)
+
+red = np.uint8([[[0,0,255]]])
+hsv_red = cv2.cvtColor(red,cv2.COLOR_BGR2HSV)
+print(hsv_red)
+</code></pre><p>2.提取</p>
+<pre><code>import cv2
+import numpy as np
+
+#HSV：
+#blue : [[[120 255 255]]]
+#green : [[[ 60 255 255]]]
+#red : [[[  0 255 255]]]
+
+img = cv2.imread(&apos;test.jpg&apos;)
+
+#blue range
+lower_blue = np.array([100,110,110])
+upper_blue = np.array([130,255,255])
+
+#green range
+lower_green = np.array([40,90,90])
+upper_green = np.array([70,255,255])
+
+#red range
+lower_red = np.array([160,120,120])
+upper_red = np.array([179,255,255])
+
+hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+
+#blue
+mask_blue = cv2.inRange(hsv,lower_blue,upper_blue)
+
+#green
+mask_green = cv2.inRange(hsv,lower_green,upper_green)
+
+#red
+mask_red = cv2.inRange(hsv,lower_red,upper_red)
+
+mask = mask_blue + mask_green + mask_red
+
+res = cv2.bitwise_and(img,img,mask=mask)
+
+cv2.imshow(&apos;img&apos;,img)
+cv2.imshow(&apos;mask&apos;,mask)
+cv2.imshow(&apos;res&apos;,res),cv2.waitKey(0)
+</code></pre><p>最后结果：</p>
+<p><img src="https://i.imgur.com/7TZiLVz.png" alt=""></p>
+
       
     </div>
     
     
     
+
+    <div>
+      
+        
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    youngling
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://younglingblog.com/2018/09/13/追踪某颜色的物体/" title="追踪某颜色的物体">http://younglingblog.com/2018/09/13/追踪某颜色的物体/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/��ǩ/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/26/模拟Cache/" rel="next" title="模拟Cache">
+                <i class="fa fa-chevron-left"></i> 模拟Cache
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
