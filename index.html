@@ -258,6 +258,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://younglingblog.com/2018/09/14/阈值分割/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="youngling">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Programming Humor">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/14/阈值分割/" itemprop="url">追踪某颜色的物体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-14T16:39:35+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-14T16:49:34+08:00">
+                2018-09-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/����/图像识别/" itemprop="url" rel="index">
+                    <span itemprop="name">图像识别</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  60
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 固定阈值分割：像素点值大于阈值一个值，小于阈值是另外一个值</p>
+<p><img src="https://i.imgur.com/jjohL29.png" alt=""></p>
+<pre><code>import cv2
+import matplotlib.pyplot as plt
+
+img = cv2.imread(&apos;gradient.jpg&apos;,0)
+
+ret,th = cv2.threshold(img,127,255,cv2.THRESH_BINARY)
+
+cv2.imshow(&apos;thresh&apos;,th)
+cv2.imshow(&apos;img&apos;,img),cv2.waitKey(0)
+</code></pre><p><img src="https://i.imgur.com/iKQZ6LL.png" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://younglingblog.com/2018/09/13/追踪某颜色的物体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -888,8 +1088,8 @@ cache[e].CacheTag[i] = b[i];
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T19:21:15+08:00">
-                2018-03-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-14T22:35:52+08:00">
+                2018-09-14
               </time>
             
           </span>
@@ -938,7 +1138,7 @@ cache[e].CacheTag[i] = b[i];
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  111
+                  104
                 </span>
               
 
@@ -979,7 +1179,7 @@ cache[e].CacheTag[i] = b[i];
           
             <h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul>
 <li>四六级</li>
-<li>考研，一定要考上浙大</li>
+<li>考研</li>
 <li>看一些书</li>
 <li>将 PAT乙级刷完以及甲级尽量刷完</li>
 </ul>
@@ -1088,8 +1288,8 @@ cache[e].CacheTag[i] = b[i];
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-26T20:28:14+08:00">
-                2018-03-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-14T16:42:02+08:00">
+                2018-09-14
               </time>
             
           </span>
@@ -1270,7 +1470,7 @@ cache[e].CacheTag[i] = b[i];
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1344,7 +1544,7 @@ cache[e].CacheTag[i] = b[i];
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.3k</span>
+    <span title="Site words total count">1.4k</span>
   
 </div>
 
